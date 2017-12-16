@@ -22,6 +22,7 @@
         <activity android:name=".GameActivity" />
         <activity android:name=".InstructionsActivity" />
         <activity android:name=".PostGameActivity" />
+        <activity android:name=".MainActivityFirebase" />
         <activity
             android:name=".Temp"
             android:label="@string/title_activity_temp"></activity>
