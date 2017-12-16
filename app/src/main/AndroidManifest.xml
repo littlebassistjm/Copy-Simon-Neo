@@ -4,14 +4,13 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/simon_icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/simon_icon"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
-        <activity
-            android:name=".MainActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +24,9 @@
         <activity android:name=".MainActivityFirebase" />
         <activity
             android:name=".Temp"
-            android:label="@string/title_activity_temp"></activity>
+            android:label="@string/title_activity_temp" />
+        <activity android:name=".MultiplayerActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

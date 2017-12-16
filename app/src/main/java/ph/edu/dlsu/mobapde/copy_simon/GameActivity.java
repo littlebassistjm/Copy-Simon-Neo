@@ -267,7 +267,8 @@ public class GameActivity extends AppCompatActivity {
             ct=new CountDownTimer(3000,100) {
                 @Override
                 public void onTick(long l) {
-                    double timeleft=l/1000;
+                    double timeleft=l;
+                    timeleft/=1000;
                     tvLevel.setText("Time Left " + new DecimalFormat("##.##").format(timeleft)+"s");
                     tvLevel.invalidate();
                     Log.i("playGame", "C Timer"+l);
@@ -287,7 +288,8 @@ public class GameActivity extends AppCompatActivity {
             ct=new CountDownTimer(2000,100) {
                 @Override
                 public void onTick(long l) {
-                    double timeleft=l/1000;
+                    double timeleft=l;
+                    timeleft/=1000;
                     tvLevel.setText("Time Left " + new DecimalFormat("##.##").format(timeleft)+"s");
                     tvLevel.invalidate();
                     Log.i("playGame", "C Timer"+l);
@@ -307,7 +309,8 @@ public class GameActivity extends AppCompatActivity {
             ct=new CountDownTimer(1000,100) {
                 @Override
                 public void onTick(long l) {
-                    double timeleft=l/1000;
+                    double timeleft=l;
+                    timeleft/=1000;
                     tvLevel.setText("Time Left " + new DecimalFormat("##.##").format(timeleft)+"s");
                     tvLevel.invalidate();
                     Log.i("playGame", "C Timer"+l);
@@ -327,7 +330,9 @@ public class GameActivity extends AppCompatActivity {
             ct=new CountDownTimer(500,100) {
                 @Override
                 public void onTick(long l) {
-                    double timeleft=l/1000;
+
+                    double timeleft=l;
+                    timeleft/=1000;
                     tvLevel.setText("Time Left " + new DecimalFormat("##.##").format(timeleft)+"s");
                     tvLevel.invalidate();
                     Log.i("playGame", "C Timer"+l);
@@ -347,7 +352,8 @@ public class GameActivity extends AppCompatActivity {
             ct=new CountDownTimer(200,100) {
                 @Override
                 public void onTick(long l) {
-                    double timeleft=l/1000;
+                    double timeleft=l;
+                    timeleft/=1000;
                     tvLevel.setText("Time Left " + new DecimalFormat("##.##").format(timeleft)+"s");
                     tvLevel.invalidate();
                     Log.i("playGame", "C Timer"+l);
