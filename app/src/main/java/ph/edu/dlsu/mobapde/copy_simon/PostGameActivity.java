@@ -41,10 +41,11 @@ public class PostGameActivity extends AppCompatActivity {
         else  if (gamemode.equals(MainActivity.SPEED_MODE)){
             table = Score.TABLE_NAME2;
         } else {
-            table = "no table given";
+            table = "";
         }
-        tvHighest.setText(""+dbhelper.getHighest(table));
-
+        if(table.length()>0) {
+            tvHighest.setText("" + dbhelper.getHighest(table));
+        }
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.LightDialogTheme);
         LayoutInflater inflater = this.getLayoutInflater();
         View v = inflater.inflate(R.layout.dialog_new_highscore_input, null);
@@ -88,10 +89,11 @@ public class PostGameActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        Log.i("postGame", "lowest score " + dbhelper.getLowest(table));
-        if(score > dbhelper.getLowest(table)){
-            newHighScore.show();
+        if(table.length()>0) {
+            Log.i("postGame", "lowest score " + dbhelper.getLowest(table));
+            if (score > dbhelper.getLowest(table)) {
+                newHighScore.show();
+            }
         }
 
     }
