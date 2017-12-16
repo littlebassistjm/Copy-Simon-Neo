@@ -40,4 +40,4 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.0.1'
 }
 
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
