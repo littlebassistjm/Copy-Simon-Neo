@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
         ivHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), InstructionsActivity.class);
+                //Intent intent = new Intent(getBaseContext(), InstructionsActivity.class);
+                Intent intent = new Intent(getBaseContext(), MainActivityFirebase.class);
                 startActivity(intent);
             }
         });
