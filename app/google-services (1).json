@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "516241117153",
+    "firebase_url": "https://fir-30-6ec84.firebaseio.com",
+    "project_id": "fir-30-6ec84",
+    "storage_bucket": "fir-30-6ec84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516241117153:android:c13ad9cf6d3afe88",
+        "android_client_info": {
+          "package_name": "ph.edu.dlsu.mobapde.copy_simon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516241117153-47argooggpi79kkkbna4fq8lpc11flsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC92joKsgBhpUEiTzRSpmXyLV3oPP-s9TY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
