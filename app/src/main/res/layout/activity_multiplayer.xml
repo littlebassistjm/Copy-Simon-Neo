@@ -44,6 +44,7 @@
         android:weightSum="2">
 
         <RelativeLayout
+            android:id="@+id/side1"
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -74,6 +75,7 @@
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
+            android:id="@+id/side2"
             android:layout_width="0sp"
             android:layout_height="match_parent"
             android:layout_weight="1">

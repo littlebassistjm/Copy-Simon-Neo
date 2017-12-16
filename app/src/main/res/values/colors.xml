@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="backgroundColor">#212121</color>
     <color name="textColor">#FFFFFF</color>
+    <color name="PlayerFault">#B40210</color>
 </resources>

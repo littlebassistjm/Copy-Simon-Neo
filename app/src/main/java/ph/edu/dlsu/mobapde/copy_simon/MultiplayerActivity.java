@@ -5,15 +5,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static java.security.AccessController.getContext;
 
 public class MultiplayerActivity extends AppCompatActivity {
     ArrayList<Integer> Key_Pattern=new ArrayList<>();
@@ -21,6 +25,7 @@ public class MultiplayerActivity extends AppCompatActivity {
     String gameMode;
     TextView tvLevel1,tvLevel2, tvCountdown;
     Random random = new Random();
+    RelativeLayout r1,r2;
     ImageButton ivGreen, ivRed, ivYellow, ivBlue;
     Boolean playerLost, isMuted;
     MediaPlayer g1, c2, e2, g2;
@@ -41,7 +46,8 @@ public class MultiplayerActivity extends AppCompatActivity {
         ivYellow = findViewById(R.id.iv_yellowM);
         ivBlue = findViewById(R.id.iv_blueM);
 
-
+        r1=findViewById(R.id.side1);
+        r2=findViewById(R.id.side2);
 
         playerLost = false;
         Intent gameIntent = getIntent();
@@ -82,6 +88,7 @@ public class MultiplayerActivity extends AppCompatActivity {
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
+                    r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Green button fail");
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
@@ -112,6 +119,7 @@ public class MultiplayerActivity extends AppCompatActivity {
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
+                    r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Red button fail");
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
@@ -141,6 +149,7 @@ public class MultiplayerActivity extends AppCompatActivity {
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
+                    r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Yellow button fail");
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
@@ -170,6 +179,7 @@ public class MultiplayerActivity extends AppCompatActivity {
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
+                    r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Blue button fail");
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
