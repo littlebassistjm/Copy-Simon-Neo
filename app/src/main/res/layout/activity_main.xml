@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ph.edu.dlsu.mobapde.copy_simon.MainActivity"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="COPY"
+        android:textSize="90sp"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIMON"
+        android:textSize="90sp"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/button_classic"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Classic"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:background="@drawable/blue_button"
+        android:contentDescription="Play classic mode"
+        />
+
+    <Button
+        android:id="@+id/button_speed_mode"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Speed Mode"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:background="@drawable/green_button"
+        android:contentDescription="Play speed mode"
+        />
+
+
+    <Button
+        android:id="@+id/button_coop"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="CO-OP"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:background="@drawable/red_button"
+        android:contentDescription="Play co-op mode"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp">
+
+        <ImageView
+            android:id="@+id/iv_highscores"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/highscores_button"
+            android:contentDescription="High scores"
+            android:layout_alignParentStart="true"
+            />
+        <ImageView
+            android:id="@+id/iv_help"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/help_button"
+            android:contentDescription="Help"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:id="@+id/iv_settings"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sound_button"
+            android:contentDescription="Settings"
+            android:layout_alignParentEnd="true"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>
+

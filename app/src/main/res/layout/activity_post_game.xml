@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ph.edu.dlsu.mobapde.copy_simon.PostGameActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SCORE"
+        android:textSize="50sp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="9"
+        android:textSize="50sp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HIGHEST"
+        android:textSize="50sp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_highest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1337"
+        android:textSize="50sp"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_highscores"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@drawable/highscores_button"
+            android:layout_margin="15dp"
+            android:contentDescription="High Scores"
+            />
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@drawable/play_button"
+            android:layout_margin="15dp"
+            android:contentDescription="Play"
+            />
+        <ImageView
+            android:id="@+id/iv_home"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@drawable/home_button"
+            android:layout_margin="15dp"
+            android:contentDescription="Home"
+            />
+    </LinearLayout>
+</LinearLayout>

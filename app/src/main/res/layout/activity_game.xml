@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ph.edu.dlsu.mobapde.copy_simon.GameActivity"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:text="0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/tv_countdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8"
+        android:textSize="30sp"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/iv_green"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/green_button_selector" />
+            <ImageButton
+                android:id="@+id/iv_red"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/red_button_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/iv_yellow"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/yellow_button_selector"/>
+            <ImageButton
+                android:id="@+id/iv_blue"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/blue_button_selector" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
