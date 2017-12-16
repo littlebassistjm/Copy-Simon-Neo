@@ -3,9 +3,11 @@ package ph.edu.dlsu.mobapde.copy_simon;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonClassic, buttonSpeedMode, buttonCoop;
     ImageView ivHighScores, ivHelp, ivSettings;
+    MediaPlayer lobbyMusic;
 
     public final static String GAME_MODE = "gameMode";
     public final static String CLASSIC_MODE = "classic";
@@ -29,12 +32,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        lobbyMusic = MediaPlayer.create(this, R.raw.bit_rush_lol);
+        //lobbyMusic.setLooping(true);
+
         buttonClassic = findViewById(R.id.button_classic);
         buttonSpeedMode = findViewById(R.id.button_speed_mode);
         buttonCoop = findViewById(R.id.button_coop);
         ivHighScores = findViewById(R.id.iv_highscores);
         ivHelp = findViewById(R.id.iv_help);
         ivSettings = findViewById(R.id.iv_settings);
+
+
 
         //audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         isMuted = false;
@@ -99,14 +107,35 @@ public class MainActivity extends AppCompatActivity {
                 if (!isMuted){
                     //audioManager.setMode(AudioManager.ADJUST_MUTE);
                     ivSettings.setImageResource(R.drawable.muted_sound_button);
+                    lobbyMusic.pause();
                     isMuted=true;
                 } else{
                     //audioManager.setMode(AudioManager.ADJUST_UNMUTE);
                     ivSettings.setImageResource(R.drawable.sound_button);
+                    lobbyMusic.start();
                     isMuted=false;
                 }
             }
         });
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        lobbyMusic.seekTo(lobbyMusic.getDuration());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        lobbyMusic.start();
+        Log.i("main", "onstart");
     }
 }

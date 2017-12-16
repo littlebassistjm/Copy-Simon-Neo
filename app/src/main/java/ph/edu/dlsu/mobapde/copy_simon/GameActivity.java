@@ -26,7 +26,7 @@ public class GameActivity extends AppCompatActivity {
     Random random = new Random();
     ImageButton ivGreen, ivRed, ivYellow, ivBlue;
     Boolean playerLost, isMuted;
-    MediaPlayer g1, c2, e2, g2;
+    MediaPlayer g1, c2, e2, g2, correctTune, wrongTune;
     MediaPlayer mediaController;
     int g1Duration, c2Duration, e2Duration, g2Duration;
 
@@ -59,6 +59,8 @@ public class GameActivity extends AppCompatActivity {
             c2 = MediaPlayer.create(this, R.raw.c2);
             e2 = MediaPlayer.create(this, R.raw.e2);
             g2 = MediaPlayer.create(this, R.raw.g2);
+            correctTune = MediaPlayer.create(this, R.raw.correct);
+            wrongTune = MediaPlayer.create(this, R.raw.wrong);
 
             g1Duration = g1.getDuration();
             c2Duration = c2.getDuration();
@@ -115,16 +117,20 @@ public class GameActivity extends AppCompatActivity {
                         tvLevel.setText("" + (totalCount + LevelCount));
                         tvLevel.invalidate();
                     }
-                    if((LevelCount+1)==Key_Pattern.size())
+                    if((LevelCount+1)==Key_Pattern.size()){
+                        correctTune.start();
                         levelup();
+                    }
                     else if (gameMode.equals("speed"))
                         ct.start();
                 }else{
                     Log.i("playGame", "Green button fail");
+                    wrongTune.start();
+                    while(wrongTune.isPlaying());
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
-
                     intent.putExtra("Score",(totalCount+LevelCount));
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
                 }
@@ -153,16 +159,20 @@ public class GameActivity extends AppCompatActivity {
                         tvLevel.setText("" + (totalCount + LevelCount));
                         tvLevel.invalidate();
                     }
-                    if((LevelCount+1)==Key_Pattern.size())
+                    if((LevelCount+1)==Key_Pattern.size()){
+                        correctTune.start();
                         levelup();
+                    }
                     else if (gameMode.equals("speed"))
                         ct.start();
 
                 }else{
                     Log.i("playGame", "Red button fail");
+                    wrongTune.start();
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
                 }
@@ -191,15 +201,19 @@ public class GameActivity extends AppCompatActivity {
                         tvLevel.setText("" + (totalCount + LevelCount));
                         tvLevel.invalidate();
                     }
-                    if((LevelCount+1)==Key_Pattern.size())
+                    if((LevelCount+1)==Key_Pattern.size()){
+                        correctTune.start();
                         levelup();
+                    }
                     else if (gameMode.equals("speed"))
                         ct.start();
                 }else{
                     Log.i("playGame", "Yellow button fail");
+                    wrongTune.start();
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
 
@@ -229,15 +243,19 @@ public class GameActivity extends AppCompatActivity {
                         tvLevel.setText("" + (totalCount + LevelCount));
                         tvLevel.invalidate();
                     }
-                    if((LevelCount+1)==Key_Pattern.size())
+                    if((LevelCount+1)==Key_Pattern.size()){
+                        correctTune.start();
                         levelup();
+                    }
                     else if (gameMode.equals("speed"))
                         ct.start();
                 }else{
                     Log.i("playGame", "Blue button fail");
+                    wrongTune.start();
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
 
