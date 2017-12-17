@@ -6,9 +6,9 @@
 
     <string name="instructions_classic">When the game starts, the buttons would light up in a random order and play sounds that vary per button.
         You would then have to repeat the same sequence in the exact same order that the buttons were lit up.</string>
-    <string name="instructions_multiplayer">This mode is the same as classic but requires either 2 or 4 players.
-        Each player will be assigned certain number of keys depending on how many are playing.
-        The players will share one sequence and they need to complete the sequence only pressing their assigned buttons.
+    <string name="instructions_multiplayer">This mode is the same as classic but requires 2 players.
+        Each player will be assigned two (2) keys.
+        The players will share one sequence and they need to complete the sequence by only pressing their assigned buttons.
         The player that press their assigned buttons when they're not supposed to, loses.</string>
     <string name="instructions_speed">Classic with a timer. You will need to press the next key before the timer run out; else, you lose.</string>
 </resources>

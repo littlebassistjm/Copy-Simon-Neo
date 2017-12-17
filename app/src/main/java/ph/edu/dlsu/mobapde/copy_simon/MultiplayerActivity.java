@@ -23,7 +23,7 @@ public class MultiplayerActivity extends AppCompatActivity {
     ArrayList<Integer> Key_Pattern=new ArrayList<>();
     int totalCount=0,LevelCount=0;
     String gameMode;
-    TextView tvLevel1,tvLevel2, tvCountdown;
+    TextView tvLevel1, tvCountdown;
     Random random = new Random();
     RelativeLayout r1,r2;
     ImageButton ivGreen, ivRed, ivYellow, ivBlue;
@@ -38,7 +38,6 @@ public class MultiplayerActivity extends AppCompatActivity {
 
         tvLevel1 = findViewById(R.id.tv_scoreM1);
         tvCountdown = findViewById(R.id.tv_countrdown);
-        tvLevel2 = findViewById(R.id.tv_scoreM2);
 
 
         ivGreen = findViewById(R.id.iv_greenM);
@@ -80,19 +79,16 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvCountdown.setText(""+(Key_Pattern.size()-(LevelCount+1)));
                     tvCountdown.invalidate();
 
-                    tvLevel1.setText("Score " + (totalCount + LevelCount));
+                    tvLevel1.setText("" + (totalCount + LevelCount));
                     tvLevel1.invalidate();
-                    tvLevel2.setText("Score " + (totalCount + LevelCount));
-                    tvLevel2.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
                     r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Green button fail");
-                    Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
-
                     intent.putExtra("Score",(totalCount+LevelCount));
                     startActivity(intent);
                     finish();
@@ -111,17 +107,15 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvCountdown.setText(""+(Key_Pattern.size()-(LevelCount+1)));
                     tvCountdown.invalidate();
 
-                    tvLevel1.setText("Score " + (totalCount + LevelCount));
+                    tvLevel1.setText("" + (totalCount + LevelCount));
                     tvLevel1.invalidate();
-                    tvLevel2.setText("Score " + (totalCount + LevelCount));
-                    tvLevel2.invalidate();;
 
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
                     r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Red button fail");
-                    Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
                     startActivity(intent);
@@ -141,17 +135,15 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvCountdown.setText(""+(Key_Pattern.size()-(LevelCount+1)));
                     tvCountdown.invalidate();
 
-                    tvLevel1.setText("Score " + (totalCount + LevelCount));
+                    tvLevel1.setText("" + (totalCount + LevelCount));
                     tvLevel1.invalidate();
-                    tvLevel2.setText("Score " + (totalCount + LevelCount));
-                    tvLevel2.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
                     r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Yellow button fail");
-                    Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
                     startActivity(intent);
@@ -171,17 +163,15 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvCountdown.setText(""+(Key_Pattern.size()-(LevelCount+1)));
                     tvCountdown.invalidate();
 
-                    tvLevel1.setText("Score " + (totalCount + LevelCount));
+                    tvLevel1.setText("" + (totalCount + LevelCount));
                     tvLevel1.invalidate();
-                    tvLevel2.setText("Score " + (totalCount + LevelCount));
-                    tvLevel2.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
                         levelup();
                 }else{
                     r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
                     Log.i("playGame", "Blue button fail");
-                    Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
+                    Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
                     startActivity(intent);
@@ -200,10 +190,8 @@ public class MultiplayerActivity extends AppCompatActivity {
         Key_Pattern.add(5);
 
         tvCountdown.setText("Start");
-        tvLevel1.setText("Score 0");
+        tvLevel1.setText("0");
         tvLevel1.invalidate();
-        tvLevel2.setText("Score 0");
-        tvLevel2.invalidate();
         tvCountdown.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

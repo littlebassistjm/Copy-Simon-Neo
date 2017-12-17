@@ -1,71 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ph.edu.dlsu.mobapde.copy_simon.MainActivity"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="30dp">
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="COPY"
-        android:textSize="90sp"
-        android:gravity="center" />
+    android:id="@+id/text_copy"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:includeFontPadding="false"
+    android:text="COPY"
+    android:textSize="80sp"
+    android:gravity="center" />
+
     <TextView
+        android:id="@+id/text_simon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SIMON"
-        android:textSize="90sp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_copy"
         android:gravity="center"
-        />
-
-    <Button
-        android:id="@+id/button_classic"
-        android:layout_width="300dp"
+        android:includeFontPadding="false"
+        android:text="SIMON"
+        android:textSize="80sp" />
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_copy_simon"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:src="@drawable/copy_simon_title"-->
+        <!--android:layout_marginTop="10dp"/>-->
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Classic"
-        android:textSize="30sp"
-        android:layout_gravity="center"
-        android:background="@drawable/blue_button"
-        android:contentDescription="Play classic mode"
-        />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/text_simon"
+        android:layout_marginTop="19dp"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_speed_mode"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Speed Mode"
-        android:textSize="30sp"
-        android:layout_gravity="center"
-        android:background="@drawable/green_button"
-        android:contentDescription="Play speed mode"
-        />
+        <Button
+            android:id="@+id/button_classic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/blue_button"
+            android:contentDescription="Play classic mode"
+            android:text="Classic"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/button_speed_mode"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/green_button"
+            android:contentDescription="Play speed mode"
+            android:text="Speed Mode"
+            android:textSize="30sp" />
 
 
-    <Button
-        android:id="@+id/button_coop"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="CO-OP"
-        android:textSize="30sp"
-        android:layout_gravity="center"
-        android:background="@drawable/red_button"
-        android:contentDescription="Play co-op mode"
-        />
+        <Button
+            android:id="@+id/button_coop"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/red_button"
+            android:contentDescription="Play co-op mode"
+            android:text="CO-OP"
+            android:textSize="30sp" />
+    </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp">
+        android:layout_marginTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true">
 
         <ImageView
             android:id="@+id/iv_highscores"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:src="@drawable/highscores_button"
             android:contentDescription="High scores"
             android:layout_alignParentStart="true"
@@ -73,7 +95,7 @@
         <ImageView
             android:id="@+id/iv_help"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:src="@drawable/help_button"
             android:contentDescription="Help"
             android:layout_centerInParent="true"
@@ -81,7 +103,7 @@
         <ImageView
             android:id="@+id/iv_settings"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:src="@drawable/sound_button"
             android:contentDescription="Settings"
             android:layout_alignParentEnd="true"
@@ -89,5 +111,5 @@
     </RelativeLayout>
 
 
-</LinearLayout>
+</RelativeLayout>
 

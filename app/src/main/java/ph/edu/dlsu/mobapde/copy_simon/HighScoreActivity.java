@@ -65,10 +65,13 @@ public class HighScoreActivity extends AppCompatActivity {
         shs=findViewById(R.id.speedhs);
 
         shs.setText("SPEED");
-        chs.setPaintFlags(chs.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         chs.setText("CLASSIC");
 
         Intent i = getIntent();
+        if (i.getExtras().getBoolean("From Main")) {
+            MainActivity.lobbyMusic.start();
+            Log.i("high", MainActivity.lobbyMusic.getDuration()+"");
+        }
         mode = i.getExtras().getString("Mode")+"Highscore";
         dbhelper = new DatabaseHelper(getBaseContext());
         intialize(dbhelper);
@@ -100,10 +103,8 @@ public class HighScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 chs.setText("CLASSIC");
-                chs.setPaintFlags(chs.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 chs.setBackgroundResource(R.drawable.green_button);
                 shs.setText("SPEED");
-                shs.setPaintFlags(chs.getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
                 shs.setBackgroundResource(R.drawable.yellow_button_off);
 
                 sa=new ScoreAdapter(getBaseContext(),
@@ -116,10 +117,8 @@ public class HighScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 shs.setText("SPEED");
-                shs.setPaintFlags(chs.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 shs.setBackgroundResource(R.drawable.yellow_button);
                 chs.setText("CLASSIC");
-                chs.setPaintFlags(chs.getPaintFlags() & (~ Paint.UNDERLINE_TEXT_FLAG));
                 chs.setBackgroundResource(R.drawable.green_button_off);
                 sa=new ScoreAdapter(getBaseContext(),
                         dbhelper.getAllScoresCursor("speedHighscore"));

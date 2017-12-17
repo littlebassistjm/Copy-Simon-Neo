@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class PostGameActivity extends AppCompatActivity {
 
-    TextView tvScore, tvHighest;
+    TextView tvScore, tvHighest, tvMode;
     ImageView ivHighScores, ivPlay, ivHome;
     EditText etDialogHighScoreName;
     String table;
@@ -26,14 +26,23 @@ public class PostGameActivity extends AppCompatActivity {
 
         tvScore = findViewById(R.id.tv_score);
         tvHighest = findViewById(R.id.tv_highest);
+        tvMode = findViewById(R.id.tv_mode);
         ivHighScores = findViewById(R.id.iv_highscores);
         ivPlay = findViewById(R.id.iv_play);
         ivHome = findViewById(R.id.iv_home);
         final DatabaseHelper dbhelper=new DatabaseHelper(getBaseContext());
+
         Intent i = getIntent();
         final int score = i.getExtras().getInt("Score");
         final String gamemode = i.getExtras().getString(MainActivity.GAME_MODE);
         tvScore.setText(""+score);
+        if (gamemode.equals(MainActivity.CLASSIC_MODE)){
+            tvMode.setText("CLASSIC");
+        }
+        else  if (gamemode.equals(MainActivity.SPEED_MODE)){
+            tvMode.setText("SPEED");
+        }
+
         //String table;
         if (gamemode.equals(MainActivity.CLASSIC_MODE)){
             table = Score.TABLE_NAME;

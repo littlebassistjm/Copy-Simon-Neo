@@ -24,8 +24,10 @@
         <activity
             android:name=".Temp"
             android:label="@string/title_activity_temp" />
-        <activity android:name=".MultiplayerActivity"
-            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".MultiplayerActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".MultiplayerPostGameActivity"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,9 @@
 package ph.edu.dlsu.mobapde.copy_simon;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.provider.MediaStore;
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button buttonClassic, buttonSpeedMode, buttonCoop;
     ImageView ivHighScores, ivHelp, ivSettings;
-    MediaPlayer lobbyMusic;
+    public static MediaPlayer lobbyMusic;
 
     public final static String GAME_MODE = "gameMode";
     public final static String CLASSIC_MODE = "classic";
@@ -32,8 +34,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver mReceiver = new ScreenReceiver();
+        registerReceiver(mReceiver, filter);
+
         lobbyMusic = MediaPlayer.create(this, R.raw.bit_rush_lol);
         //lobbyMusic.setLooping(true);
+        Log.i("main", lobbyMusic.getDuration()+"");
 
         buttonClassic = findViewById(R.id.button_classic);
         buttonSpeedMode = findViewById(R.id.button_speed_mode);
@@ -55,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(GAME_MODE, CLASSIC_MODE);
                 intent.putExtra(SOUND_STATE, isMuted);
 
+                lobbyMusic.pause();
+
                 startActivity(intent);
             }
         });
@@ -64,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), GameActivity.class);
                 intent.putExtra(GAME_MODE, SPEED_MODE);
                 intent.putExtra(SOUND_STATE, isMuted);
+
+                lobbyMusic.pause();
 
                 startActivity(intent);
             }
@@ -77,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(GAME_MODE, COOP_MODE);
                 intent.putExtra(SOUND_STATE, isMuted);
 
+                lobbyMusic.seekTo(lobbyMusic.getDuration());
+
                 startActivity(intent);
             }
         });
@@ -87,12 +101,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), HighScoreActivity.class);
                 intent.putExtra("Mode",CLASSIC_MODE);
+                intent.putExtra("From Main", true);
                 startActivity(intent);
             }
         });
 
         // view help/instructions
-
         ivHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,14 +138,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
+        if (ScreenReceiver.wasScreenOn) {
+            // this is the case when onPause() is called by the system due to a screen state change
+            System.out.println("SCREEN TURNED OFF");
+            Log.i("main", "onStop");
+            lobbyMusic.pause();
+        } else {
+            // this is when onPause() is called when the screen state has not changed
+        }
         super.onPause();
-        lobbyMusic.seekTo(lobbyMusic.getDuration());
     }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
     }
 
     @Override

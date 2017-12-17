@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ph.edu.dlsu.mobapde.copy_simon.PostGameActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
-
+    tools:context="ph.edu.dlsu.mobapde.copy_simon.MultiplayerPostGameActivity">
 
     <TextView
-        android:id="@+id/tv_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="70sp"
@@ -33,40 +31,12 @@
         android:gravity="center"
         />
 
-    <TextView
-        android:layout_marginTop="40dp"
-        android:includeFontPadding="false"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="HIGHEST"
-        android:textSize="50sp"
-        android:gravity="center"
-        />
-
-    <TextView
-        android:id="@+id/tv_highest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:includeFontPadding="false"
-        android:text="0"
-        android:textSize="40sp"
-        android:gravity="center"
-        />
-
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/iv_highscores"
-            android:layout_width="50dp"
-            android:layout_height="100dp"
-            android:src="@drawable/highscores_button"
-            android:layout_margin="15dp"
-            android:contentDescription="High Scores"
-            />
         <ImageView
             android:id="@+id/iv_play"
             android:layout_width="50dp"
@@ -84,4 +54,5 @@
             android:contentDescription="Home"
             />
     </LinearLayout>
+
 </LinearLayout>
