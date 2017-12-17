@@ -28,7 +28,7 @@ public class MultiplayerActivity extends AppCompatActivity {
     RelativeLayout r1,r2;
     ImageButton ivGreen, ivRed, ivYellow, ivBlue;
     Boolean playerLost, isMuted;
-    MediaPlayer g1, c2, e2, g2;
+    MediaPlayer g1, c2, e2, g2, correctTune, wrongTune;
     MediaPlayer mediaController;
 
     @Override
@@ -57,6 +57,8 @@ public class MultiplayerActivity extends AppCompatActivity {
         c2 = MediaPlayer.create(this, R.raw.c2);
         e2 = MediaPlayer.create(this, R.raw.e2);
         g2 = MediaPlayer.create(this, R.raw.g2);
+        correctTune = MediaPlayer.create(this, R.raw.correct);
+        wrongTune = MediaPlayer.create(this, R.raw.wrong);
 
         if (isMuted){ // if muted, set volumes to 0
             g1.setVolume(0,0);
@@ -83,13 +85,18 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvLevel1.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
+                    {
+                        correctTune.start();
                         levelup();
+                    }
                 }else{
                     r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
+                    wrongTune.start();
                     Log.i("playGame", "Green button fail");
                     Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
                     intent.putExtra("Score",(totalCount+LevelCount));
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
                 }
@@ -111,13 +118,18 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvLevel1.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
+                    {
+                        correctTune.start();
                         levelup();
+                    }
                 }else{
                     r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
+                    wrongTune.start();
                     Log.i("playGame", "Red button fail");
                     Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
                 }
@@ -139,13 +151,18 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvLevel1.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
+                    {
+                        correctTune.start();
                         levelup();
+                    }
                 }else{
                     r1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
+                    wrongTune.start();
                     Log.i("playGame", "Yellow button fail");
                     Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
 
@@ -167,13 +184,18 @@ public class MultiplayerActivity extends AppCompatActivity {
                     tvLevel1.invalidate();
 
                     if((LevelCount+1)==Key_Pattern.size())
+                    {
+                        correctTune.start();
                         levelup();
+                    }
                 }else{
                     r2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.PlayerFault));
+                    wrongTune.start();
                     Log.i("playGame", "Blue button fail");
                     Intent intent = new Intent(getBaseContext(), MultiplayerPostGameActivity.class);
                     intent.putExtra("Score",(totalCount+LevelCount));
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
+                    while(wrongTune.isPlaying());
                     startActivity(intent);
                     finish();
 

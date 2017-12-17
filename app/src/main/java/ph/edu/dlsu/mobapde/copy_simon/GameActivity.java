@@ -126,7 +126,6 @@ public class GameActivity extends AppCompatActivity {
                 }else{
                     Log.i("playGame", "Green button fail");
                     wrongTune.start();
-                    while(wrongTune.isPlaying());
                     Intent intent = new Intent(getBaseContext(), PostGameActivity.class);
                     intent.putExtra(MainActivity.GAME_MODE, gameMode);
                     intent.putExtra("Score",(totalCount+LevelCount));
